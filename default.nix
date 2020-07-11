@@ -113,6 +113,11 @@ in
     withAutoReconf = true;
   };
 
+  emacs-27-0 = pkgs.callPackage ./emacs.nix {
+    inherit (snapshot "d24e56a5e4959f82b3da0dfac9ee3c428e077cbd" "0000000000000000000000000000000000000000000000000000") name src;
+    srcRepo = true;
+    withAutoReconf = true; };
+
   emacs-snapshot = pkgs.callPackage ./emacs.nix {
     inherit (snapshot "23ef804eb55ed7324509b81638c66532344fe523" "1206ip4v3yh5vp5w40qmd4i7cshfmhbkpw00xsaa2yz05fk0nw5s") name src;
     srcRepo = true;
