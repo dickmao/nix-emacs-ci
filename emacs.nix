@@ -52,7 +52,7 @@ stdenv.mkDerivation rec {
     "--with-ns=no"
     "--with-xpm=no"
     "--with-jpeg=no"
-    "--with-png=no"
+    "--with-png=yes"
     "--with-gif=no"
     "--with-tiff=no"
   ] ++ lib.optionals needCrtDir [ "--with-crt-dir=${stdenv.glibc}/lib" ];
