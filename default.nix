@@ -122,7 +122,8 @@ in
   emacs-27-1 = pkgs.callPackage ./emacs.nix {
     inherit (snapshot "d24e56a5e4959f82b3da0dfac9ee3c428e077cbd" "1miqjjngicdb2r7742cl9adhx9sagqs6lz04d7pzxy2ajgx6cx1l") name src;
     srcRepo = true;
-    withAutoReconf = true; };
+    withAutoReconf = true;
+  };
 
   emacs-snapshot = pkgs.callPackage ./emacs.nix {
     inherit (snapshot "08408b13faa911b586ac0c181159ada452a942cc" "075lsdbilfyaqdgarav1cynsxxgr76ify9l97v3h4496sls00pxk") name src;
