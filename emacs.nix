@@ -17,6 +17,8 @@
   tree-sitter,
   withTreeSitter ? lib.versionAtLeast version "29",
   withSQLite3 ? lib.versionAtLeast version "29",
+  libgccjit,
+  withNativeCompilation ? false,
   gmp,
   sigtool ? null,
   autoconf ? null,
@@ -51,7 +53,8 @@ stdenv.mkDerivation rec {
     gmp
   ]
   ++ lib.optional withSQLite3 sqlite
-  ++ lib.optional withTreeSitter tree-sitter;
+  ++ lib.optional withTreeSitter tree-sitter
+  ++ lib.optional withNativeCompilation libgccjit;
 
   hardeningDisable = [ "format" ];
 
@@ -99,7 +102,7 @@ stdenv.mkDerivation rec {
       ./patches/macos-unexec.patch
     ];
 
-  passthru = { inherit withTreeSitter; };
+  passthru = { inherit withTreeSitter withNativeCompilation; };
 
   configureFlags = [
     "--disable-build-details" # for a (more) reproducible build
@@ -112,7 +115,8 @@ stdenv.mkDerivation rec {
     "--with-gif=no"
     "--with-tiff=no"
   ]
-  ++ lib.optionals ("23.4" == version) [ "--with-crt-dir=${glibc}/lib" ];
+  ++ lib.optionals ("23.4" == version) [ "--with-crt-dir=${glibc}/lib" ]
+  ++ lib.optionals (withNativeCompilation && lib.versionOlder version "30") [ "--with-native-compilation=aot" ];
 
   postPatch = lib.concatStringsSep "\n" [
     (lib.optionalString srcRepo ''

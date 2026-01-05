@@ -1,4 +1,4 @@
-name: Update emacs snapshots
+name: Update snapshots
 
 on:
   schedule:
@@ -11,16 +11,16 @@ jobs:
     steps:
     - uses: actions/checkout@v6
     - uses: nixbuild/nix-quick-install-action@v34
-    - name: Update release snapshot commit
-      run: 'nix flake update emacs-release-snapshot'
-    - name: Update HEAD snapshot commit
+    - name: Update emacs snapshot commit
       run: 'nix flake update emacs-snapshot'
+    - name: Update commercial-emacs snapshot commit
+      run: 'nix flake update commercial-emacs'
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v8
       with:
-        title: 'Update emacs snapshots'
+        title: 'Update snapshots'
         body: ''
-        commit-message: 'Update emacs snapshots'
+        commit-message: 'Update snapshots'
         branch: snapshot-update
         branch-suffix: timestamp
         delete-branch: true
