@@ -1,183 +1,19 @@
 {
   "nodes": {
-    "emacs-23-4": {
+    "commercial-emacs": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-OzqhctHmsk30IfS61czooF+1LShToeT614RtqrMNyJw=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-23.4.tar.bz2"
+        "lastModified": 1765989687,
+        "narHash": "sha256-sQzR4fxAFx8vDaQGKIvFX/+O2MyRuyKN2UdRe82JnJo=",
+        "owner": "commercial-emacs",
+        "repo": "commercial-emacs",
+        "rev": "7cb6fb788c34570bceb9c568dd75f6443c2ef3c8",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-23.4.tar.bz2"
-      }
-    },
-    "emacs-24-1": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-UVWKuXneNHq1zJtkGo6eLacUl5MdEbCBL68a8NcYEWk=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-24.1.tar.bz2"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-24.1.tar.bz2"
-      }
-    },
-    "emacs-24-2": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-zdhQvRQs1ty4b8E4Khf10dCv+iGNuVl4FDCtUFqt2bI=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-24.2.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-24.2.tar.xz"
-      }
-    },
-    "emacs-24-3": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-kANCrStnnt/0Mxt5qV94iKwcXGgFqqhJVUwRSAC0ez4=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-24.3.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-24.3.tar.xz"
-      }
-    },
-    "emacs-24-4": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-WDPY5n3pMF7o4noS941GLDQ2zFKa8PvDkWjeMw0Wsm0=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.xz"
-      }
-    },
-    "emacs-24-5": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-jb801XX+fMvQ5OBYKpjPPsqAcqgaeYKPRfeZIP8R/rc=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.xz"
-      }
-    },
-    "emacs-25-1": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-Lxgh6MOMYYaenkgwFiFw4SZOxkGk+q/4bDv3B8rAAWM=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-25.1.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-25.1.tar.xz"
-      }
-    },
-    "emacs-25-2": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-L+Tgth/sI7aI+xQOu5iRWxhaivsK6BcmNB7wV1bUzg0=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-25.2.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-25.2.tar.xz"
-      }
-    },
-    "emacs-25-3": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-1czqSKUzuoJc+WBwpojicwpZE6VKnAqNJt2V04k2ifc=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-25.3.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-25.3.tar.xz"
-      }
-    },
-    "emacs-26-1": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-amsPbiVbko/Qvsw2cfJdkhq0UHGjhn5uyLN0MEeMq20=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.xz"
-      }
-    },
-    "emacs-26-2": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-AvO73gk6Tb+aDARgbgAq6RVz71wBSxh12RrnrD/3TM0=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz"
-      }
-    },
-    "emacs-26-3": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-iYPYrf/6Cd6wozabn2D/bj9M591vLqO84uPyj3ZN/+I=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz"
-      }
-    },
-    "emacs-27-1": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-oADGvqBASpU8Q512c+PPF1pwm1/tg2oo2a30ghJ2xVQ=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.xz"
-      }
-    },
-    "emacs-27-2": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-BaLVKUHuxGuO3F+/YRQ8DCe8FkR/fkoJIh6p4xbF4m0=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz"
-      }
-    },
-    "emacs-28-1": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-EGuOesE+gq6wzF4qiqdBQhPm+TGzZnJ/sHxkd4Liz4s=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-28.1.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-28.1.tar.xz"
+        "owner": "commercial-emacs",
+        "repo": "commercial-emacs",
+        "type": "github"
       }
     },
     "emacs-28-2": {
@@ -190,44 +26,6 @@
       "original": {
         "type": "tarball",
         "url": "https://ftp.gnu.org/gnu/emacs/emacs-28.2.tar.xz"
-      }
-    },
-    "emacs-29-1": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-C7920QvXQvrqUNAScIb++H1+3CC54ppPby+/hh6+yo0=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-29.1.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-29.1.tar.xz"
-      }
-    },
-    "emacs-29-2": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1705573161,
-        "narHash": "sha256-P589A1XNkmj4ODOXosk1sNkUGJsHSgQtIfWsNjCd+eI=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-29.2.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-29.2.tar.xz"
-      }
-    },
-    "emacs-29-3": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1711287509,
-        "narHash": "sha256-F/EO5gasb0bW0TIyudp1HAeZfwYjjE7a3ptK2oQbp7Q=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-29.3.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-29.3.tar.xz"
       }
     },
     "emacs-29-4": {
@@ -243,19 +41,6 @@
         "url": "https://ftp.gnu.org/gnu/emacs/emacs-29.4.tar.xz"
       }
     },
-    "emacs-30-1": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1740327883,
-        "narHash": "sha256-UNbaj+6JNDydBh0R92i3ec54lLATo2+th31MghgPC8M=",
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-30.1.tar.xz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://ftp.gnu.org/gnu/emacs/emacs-30.1.tar.xz"
-      }
-    },
     "emacs-30-2": {
       "flake": false,
       "locked": {
@@ -269,31 +54,14 @@
         "url": "https://ftp.gnu.org/gnu/emacs/emacs-30.2.tar.xz"
       }
     },
-    "emacs-release-snapshot": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1765541754,
-        "narHash": "sha256-bGGa9JX8NjsanhDbmotwkB6/kKJSVt8QiaoPH1v7WWU=",
-        "owner": "emacs-mirror",
-        "repo": "emacs",
-        "rev": "948c4f7f64fb9e662dfcccc609b2e02269c7ebe8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "emacs-mirror",
-        "ref": "emacs-30",
-        "repo": "emacs",
-        "type": "github"
-      }
-    },
     "emacs-snapshot": {
       "flake": false,
       "locked": {
-        "lastModified": 1767601749,
-        "narHash": "sha256-PUOrCX/mBHuuyq23sUgv0KQj2aD8nOmXHT/pbn/s0lI=",
+        "lastModified": 1767641982,
+        "narHash": "sha256-JQHC0EtMb+GxONMAqdGoiaUEj8GEALZ3NrTd3byAnMg=",
         "owner": "emacs-mirror",
         "repo": "emacs",
-        "rev": "68418691267ad7cdbb2c5f0462a4f906e112f861",
+        "rev": "28fe937d5d312246706060b80ba7e11a9ab9fe38",
         "type": "github"
       },
       "original": {
@@ -350,51 +118,16 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-glibc-2-39": {
-      "locked": {
-        "lastModified": 1759070547,
-        "narHash": "sha256-JVZl8NaVRYb0+381nl7LvPE+A774/dRpif01FKLrYFQ=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "647e5c14cbd5067f44ac86b74f014962df460840",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "647e5c14cbd5067f44ac86b74f014962df460840",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
-        "emacs-23-4": "emacs-23-4",
-        "emacs-24-1": "emacs-24-1",
-        "emacs-24-2": "emacs-24-2",
-        "emacs-24-3": "emacs-24-3",
-        "emacs-24-4": "emacs-24-4",
-        "emacs-24-5": "emacs-24-5",
-        "emacs-25-1": "emacs-25-1",
-        "emacs-25-2": "emacs-25-2",
-        "emacs-25-3": "emacs-25-3",
-        "emacs-26-1": "emacs-26-1",
-        "emacs-26-2": "emacs-26-2",
-        "emacs-26-3": "emacs-26-3",
-        "emacs-27-1": "emacs-27-1",
-        "emacs-27-2": "emacs-27-2",
-        "emacs-28-1": "emacs-28-1",
+        "commercial-emacs": "commercial-emacs",
         "emacs-28-2": "emacs-28-2",
-        "emacs-29-1": "emacs-29-1",
-        "emacs-29-2": "emacs-29-2",
-        "emacs-29-3": "emacs-29-3",
         "emacs-29-4": "emacs-29-4",
-        "emacs-30-1": "emacs-30-1",
         "emacs-30-2": "emacs-30-2",
-        "emacs-release-snapshot": "emacs-release-snapshot",
         "emacs-snapshot": "emacs-snapshot",
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-glibc-2-39": "nixpkgs-glibc-2-39"
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {
