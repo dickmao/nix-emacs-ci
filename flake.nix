@@ -25,7 +25,7 @@
       url = "github:emacs-mirror/emacs";
       flake = false;
     };
-    snapshot-commercial = {
+    emacs-snapshot-commercial = {
       url = "github:commercial-emacs/commercial-emacs";
       flake = false;
     };
@@ -62,7 +62,7 @@
                 emacs-29-4-nativecomp = "29.4";
                 emacs-30-2 = "30.2";
                 emacs-snapshot = "31.0.50";
-                snapshot-commercial = "31.0.50";
+                emacs-snapshot-commercial = "31.0.50";
               };
             in
             builtins.mapAttrs (

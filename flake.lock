@@ -55,6 +55,22 @@
         "type": "github"
       }
     },
+    "emacs-snapshot-commercial": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1765989687,
+        "narHash": "sha256-sQzR4fxAFx8vDaQGKIvFX/+O2MyRuyKN2UdRe82JnJo=",
+        "owner": "commercial-emacs",
+        "repo": "commercial-emacs",
+        "rev": "7cb6fb788c34570bceb9c568dd75f6443c2ef3c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "commercial-emacs",
+        "repo": "commercial-emacs",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -109,26 +125,10 @@
         "emacs-29-4": "emacs-29-4",
         "emacs-30-2": "emacs-30-2",
         "emacs-snapshot": "emacs-snapshot",
+        "emacs-snapshot-commercial": "emacs-snapshot-commercial",
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs",
-        "snapshot-commercial": "snapshot-commercial"
-      }
-    },
-    "snapshot-commercial": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1765989687,
-        "narHash": "sha256-sQzR4fxAFx8vDaQGKIvFX/+O2MyRuyKN2UdRe82JnJo=",
-        "owner": "commercial-emacs",
-        "repo": "commercial-emacs",
-        "rev": "7cb6fb788c34570bceb9c568dd75f6443c2ef3c8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "commercial-emacs",
-        "repo": "commercial-emacs",
-        "type": "github"
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {

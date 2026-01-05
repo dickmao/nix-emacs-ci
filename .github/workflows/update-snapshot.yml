@@ -14,7 +14,7 @@ jobs:
     - name: Update emacs snapshot commit
       run: 'nix flake update emacs-snapshot'
     - name: Update commercial snapshot commit
-      run: 'nix flake update snapshot-commercial'
+      run: 'nix flake update emacs-snapshot-commercial'
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v8
       with:
