@@ -18,6 +18,7 @@
   withTreeSitter ? lib.versionAtLeast version "29",
   withSQLite3 ? lib.versionAtLeast version "29",
   libgccjit,
+  zlib,
   withNativeCompilation ? false,
   gmp,
   sigtool ? null,
@@ -54,7 +55,10 @@ stdenv.mkDerivation rec {
   ]
   ++ lib.optional withSQLite3 sqlite
   ++ lib.optional withTreeSitter tree-sitter
-  ++ lib.optional withNativeCompilation libgccjit;
+  ++ lib.optionals withNativeCompilation [
+    libgccjit
+    zlib
+  ];
 
   hardeningDisable = [ "format" ];
 
