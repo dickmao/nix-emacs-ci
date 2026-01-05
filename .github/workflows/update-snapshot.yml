@@ -13,8 +13,8 @@ jobs:
     - uses: nixbuild/nix-quick-install-action@v34
     - name: Update emacs snapshot commit
       run: 'nix flake update emacs-snapshot'
-    - name: Update commercial-emacs snapshot commit
-      run: 'nix flake update commercial-emacs'
+    - name: Update commercial snapshot commit
+      run: 'nix flake update snapshot-commercial'
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v8
       with:
