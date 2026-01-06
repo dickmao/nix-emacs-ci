@@ -49,7 +49,7 @@ jobs:
       - uses: cachix/cachix-action@v16
         with:
           name: commercial-emacs-ci
-          signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           useDaemon: false
       - run: nix build --accept-flake-config --system ${{matrix.system}} -L ".#githubActions.checks.${{matrix.system}}.${{ matrix.attr }}"
       - name: Test if package.el works inside Emacs
