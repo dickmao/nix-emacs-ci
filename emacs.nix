@@ -195,6 +195,8 @@ stdenv.mkDerivation rec {
 
   installTargets = "tags install";
 
+  setupHook = ./setup-hook.sh;
+
   # Create site-start.el which is needed by the wrapper
   postInstall = ''
     mkdir -p $out/share/emacs/site-lisp
