@@ -34,7 +34,7 @@ jobs:
         name: Generate Nix Matrix
         run: |
           set -Eeu
-          echo "{\"include\":[{\"attr\":\"emacs-29-4\",\"os\":\"macos-latest\",\"system\":\"aarch64-darwin\"}]}" >> "$GITHUB_OUTPUT"
+          echo "matrix={\"include\":[{\"attr\":\"emacs-29-4\",\"os\":\"macos-latest\",\"system\":\"aarch64-darwin\"}]}" >> "$GITHUB_OUTPUT"
 
   build:
     needs: nix-matrix
