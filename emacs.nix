@@ -192,11 +192,10 @@ stdenv.mkDerivation rec {
     ''
   ];
 
-  env =
-    lib.optionalAttrs withNativeCompilation {
-      NATIVE_FULL_AOT = "1";
-      LIBRARY_PATH = lib.concatStringsSep ":" libGccJitLibraryPaths;
-    }
+  env = lib.optionalAttrs withNativeCompilation {
+    NATIVE_FULL_AOT = "1";
+    LIBRARY_PATH = lib.concatStringsSep ":" libGccJitLibraryPaths;
+  };
 
   installTargets = "tags install";
 
