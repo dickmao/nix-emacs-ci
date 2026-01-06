@@ -48,7 +48,7 @@ jobs:
       - uses: nixbuild/nix-quick-install-action@v34
       - uses: cachix/cachix-action@v16
         with:
-          name: emacs-ci
+          name: commercial-emacs-ci
           signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
           useDaemon: false
       - run: nix build --accept-flake-config --system ${{matrix.system}} -L ".#githubActions.checks.${{matrix.system}}.${{ matrix.attr }}"

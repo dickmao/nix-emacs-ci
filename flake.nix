@@ -32,8 +32,8 @@
   };
 
   nixConfig = {
-    extra-substituters = "https://emacs-ci.cachix.org";
-    extra-trusted-public-keys = "emacs-ci.cachix.org-1:B5FVOrxhXXrOL0S+tQ7USrhjMT5iOPH+QN9q0NItom4=";
+    extra-substituters = "https://commercial-emacs-ci.cachix.org";
+    extra-trusted-public-keys = "commercial-emacs-ci.cachix.org-1:BRcMczBflGS5k73UHpeYuACGMt+gCPUPT8sO4ezSAFs=";
   };
 
   outputs =
