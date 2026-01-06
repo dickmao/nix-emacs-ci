@@ -68,7 +68,7 @@ stdenv.mkDerivation rec {
   ++ lib.optionals withNativeCompilation [
     libgccjit
     zlib
-  ]
+  ];
 
   hardeningDisable = [ "format" ];
 
