@@ -5,7 +5,6 @@
   stdenv,
   lib,
   fetchurl,
-  glibc,
   ncurses,
   autoreconfHook,
   pkg-config,
@@ -19,7 +18,8 @@
   withSQLite3 ? lib.versionAtLeast version "29",
   libgccjit,
   zlib,
-  withNativeCompilation ? false,
+
+  withNativeCompilation ? stdenv.buildPlatform.canExecute stdenv.hostPlatform,
   gmp,
   sigtool ? null,
   autoconf ? null,
@@ -27,10 +27,20 @@
   texinfo ? null,
   srcRepo ? false,
   latestPackageKeyring,
+  replaceVars,
   darwin,
 }:
 
 # A very minimal version of https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/emacs/default.nix
+let
+  libGccJitLibraryPaths = [
+    "${lib.getLib libgccjit}/lib/gcc"
+    "${lib.getLib stdenv.cc.libc}/lib"
+  ]
+  ++ lib.optionals (stdenv.cc ? cc.lib.libgcc) [
+    "${lib.getLib stdenv.cc.cc.lib.libgcc}/lib"
+  ];
+in
 stdenv.mkDerivation rec {
   inherit name version src;
 
@@ -44,7 +54,6 @@ stdenv.mkDerivation rec {
     autoreconfHook
     texinfo
   ]
-  ++ lib.optionals withNativeCompilation [ stdenv.cc ];
 
   buildInputs = [
     ncurses
@@ -59,7 +68,7 @@ stdenv.mkDerivation rec {
   ++ lib.optionals withNativeCompilation [
     libgccjit
     zlib
-  ];
+  ]
 
   hardeningDisable = [ "format" ];
 
@@ -105,6 +114,39 @@ stdenv.mkDerivation rec {
     ) [ ./patches/gnutls-use-osx-cert-bundle.patch ]
     ++ lib.optionals (stdenv.isDarwin && lib.versionOlder version "27.1") [
       ./patches/macos-unexec.patch
+    ]
+    ++ lib.optionals withNativeCompilation [
+      (replaceVars
+        (
+          if lib.versionOlder finalAttrs.version "30" then
+            ./native-comp-driver-options.patch
+          else
+            ./native-comp-driver-options-30.patch
+        )
+        {
+          backendPath = (
+            lib.concatStringsSep " " (
+              map (x: ''"-B${x}"'') (
+                [
+                  # Paths necessary so the JIT compiler finds its libraries:
+                  "${lib.getLib libgccjit}/lib"
+                ]
+                ++ libGccJitLibraryPaths
+                ++ [
+                  # Executable paths necessary for compilation (ld, as):
+                  "${lib.getBin stdenv.cc.cc}/bin"
+                  "${lib.getBin stdenv.cc.bintools}/bin"
+                  "${lib.getBin stdenv.cc.bintools.bintools}/bin"
+                ]
+                ++ lib.optionals stdenv.hostPlatform.isDarwin [
+                  # The linker needs to know where to find libSystem on Darwin.
+                  "${apple-sdk.sdkroot}/usr/lib"
+                ]
+              )
+            )
+          );
+        }
+      )
     ];
 
   passthru = { inherit withTreeSitter withNativeCompilation; };
@@ -120,8 +162,7 @@ stdenv.mkDerivation rec {
     "--with-gif=no"
     "--with-tiff=no"
   ]
-  ++ lib.optionals ("23.4" == version) [ "--with-crt-dir=${glibc}/lib" ]
-  ++ lib.optionals (withNativeCompilation && lib.versionOlder version "30") [ "--with-native-compilation=aot" ];
+  ++ lib.optionals (withNativeCompilation) [ "--with-native-compilation=aot" ];
 
   postPatch = lib.concatStringsSep "\n" [
     (lib.optionalString srcRepo ''
@@ -151,13 +192,11 @@ stdenv.mkDerivation rec {
     ''
   ];
 
-  env = lib.optionalAttrs (stdenv.cc.isGNU && lib.versionOlder version "24.3") {
-    NIX_CFLAGS_COMPILE = toString [
-      "-Wno-error=implicit-function-declaration"
-    ];
-  } // lib.optionalAttrs withNativeCompilation {
-    LIBRARY_PATH = "${glibc}/lib:${stdenv.cc.cc.lib}/lib";
-  };
+  env =
+    lib.optionalAttrs withNativeCompilation {
+      NATIVE_FULL_AOT = "1";
+      LIBRARY_PATH = lib.concatStringsSep ":" libGccJitLibraryPaths;
+    }
 
   installTargets = "tags install";
 
@@ -165,8 +204,6 @@ stdenv.mkDerivation rec {
   postInstall = ''
     mkdir -p $out/share/emacs/site-lisp
     touch $out/share/emacs/site-lisp/site-start.el
-  '' + lib.optionalString withNativeCompilation ''
-    wrapProgram $out/bin/emacs --prefix LIBRARY_PATH : "${lib.makeLibraryPath [ glibc stdenv.cc.cc.lib zlib ]}"
   '';
 
   meta = with lib; {

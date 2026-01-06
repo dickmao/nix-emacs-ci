@@ -58,8 +58,8 @@
               inherit (nixpkgs) lib;
               pkgs = nixpkgs.legacyPackages.${system};
               versions = {
-                emacs-28-2-nativecomp = "28.2";
-                emacs-29-4-nativecomp = "29.4";
+                emacs-28-2 = "28.2";
+                emacs-29-4 = "29.4";
                 emacs-30-2 = "30.2";
                 emacs-snapshot = "31.0.50";
                 emacs-snapshot-commercial = "31.0.50";
@@ -67,20 +67,13 @@
             in
             builtins.mapAttrs (
               name: version:
-              let
-                hasNativeCompSuffix = lib.strings.hasSuffix "-nativecomp" name;
-                sourceInputName = if hasNativeCompSuffix
-                  then lib.strings.removeSuffix "-nativecomp" name
-                  else name;
-                enableNativeComp = hasNativeCompSuffix || lib.versionAtLeast version "30";
-              in
               pkgs.callPackage ./emacs.nix {
                 inherit name version;
                 inherit (pkgs.darwin) sigtool;
-                src = inputs.${sourceInputName};
+                src = inputs.${name};
                 latestPackageKeyring = inputs.emacs-snapshot + "/etc/package-keyring.gpg";
                 srcRepo = lib.strings.hasInfix "snapshot" version;
-                withNativeCompilation = enableNativeComp;
+                withNativeCompilation = true;
               }
             ) versions
           );
