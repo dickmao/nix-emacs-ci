@@ -43,7 +43,8 @@ stdenv.mkDerivation rec {
   ++ lib.optionals (lib.versionAtLeast version "25.1") [
     autoreconfHook
     texinfo
-  ];
+  ]
+  ++ lib.optionals withNativeCompilation [ stdenv.cc ];
 
   buildInputs = [
     ncurses
@@ -164,6 +165,8 @@ stdenv.mkDerivation rec {
   postInstall = ''
     mkdir -p $out/share/emacs/site-lisp
     touch $out/share/emacs/site-lisp/site-start.el
+  '' + lib.optionalString withNativeCompilation ''
+    wrapProgram $out/bin/emacs --prefix LIBRARY_PATH : "${lib.makeLibraryPath [ glibc stdenv.cc.cc.lib zlib ]}"
   '';
 
   meta = with lib; {
