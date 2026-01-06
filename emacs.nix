@@ -53,7 +53,7 @@ stdenv.mkDerivation rec {
   ++ lib.optionals (lib.versionAtLeast version "25.1") [
     autoreconfHook
     texinfo
-  ]
+  ];
 
   buildInputs = [
     ncurses
