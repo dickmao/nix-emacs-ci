@@ -154,6 +154,8 @@ stdenv.mkDerivation rec {
     NIX_CFLAGS_COMPILE = toString [
       "-Wno-error=implicit-function-declaration"
     ];
+  } // lib.optionalAttrs withNativeCompilation {
+    LIBRARY_PATH = "${glibc}/lib:${stdenv.cc.cc.lib}/lib";
   };
 
   installTargets = "tags install";
