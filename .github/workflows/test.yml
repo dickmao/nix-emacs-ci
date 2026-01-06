@@ -26,7 +26,7 @@ jobs:
     needs: relock
     runs-on: ubuntu-latest
     outputs:
-      matrix: matrix={"include":[{"attr":"emacs-29-4","os":"macos-latest","system":"aarch64-darwin"}]}
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@v6
       - uses: nixbuild/nix-quick-install-action@v34
@@ -34,7 +34,7 @@ jobs:
         name: Generate Nix Matrix
         run: |
           set -Eeu
-          echo "matrix=$(nix eval --json '.#githubActions.matrix')" >> "$GITHUB_OUTPUT"
+          echo "{\"include\":[{\"attr\":\"emacs-29-4\",\"os\":\"macos-latest\",\"system\":\"aarch64-darwin\"}]}" >> "$GITHUB_OUTPUT"
 
   build:
     needs: nix-matrix
