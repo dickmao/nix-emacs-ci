@@ -73,16 +73,6 @@
             ) versions
           );
 
-      checks = builtins.mapAttrs (
-        system: pkgs:
-        builtins.mapAttrs (
-          _name: ciEmacs:
-          nixpkgs.legacyPackages.${system}.callPackage ./tests {
-            inherit ciEmacs;
-          }
-        ) (nixpkgs.lib.filterAttrs (name: _: name != "emacs-snapshot-commercial") pkgs)
-      ) self.packages;
-
       githubActions =
         let
           inherit (builtins)
@@ -98,10 +88,10 @@
             #"x86_64-darwin" = "macos-latest";
             "aarch64-darwin" = "macos-latest";
           };
-        in
-        rec {
-          checks = intersectAttrs platforms self.checks;
           packages = intersectAttrs platforms self.packages;
+        in
+        {
+          inherit packages;
           matrix.include = concatLists (
             attrValues (
               mapAttrs (
