@@ -140,7 +140,7 @@ stdenv.mkDerivation rec {
                 ]
                 ++ lib.optionals stdenv.hostPlatform.isDarwin [
                   # The linker needs to know where to find libSystem on Darwin.
-                  "${apple-sdk.sdkroot}/usr/lib"
+                  "${darwin.apple_sdk.sdkroot}/usr/lib"
                 ]
               )
             )
