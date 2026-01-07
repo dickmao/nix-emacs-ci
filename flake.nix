@@ -9,10 +9,6 @@
       flake = false;
     };
 
-    "emacs-28-2" = {
-      url = "https://ftp.gnu.org/gnu/emacs/emacs-28.2.tar.xz";
-      flake = false;
-    };
     "emacs-29-4" = {
       url = "https://ftp.gnu.org/gnu/emacs/emacs-29.4.tar.xz";
       flake = false;
@@ -58,7 +54,6 @@
               inherit (nixpkgs) lib;
               pkgs = nixpkgs.legacyPackages.${system};
               versions = {
-                emacs-28-2 = "28.2";
                 emacs-29-4 = "29.4";
                 emacs-30-2 = "30.2";
                 emacs-snapshot = "31.0.50";
@@ -79,13 +74,13 @@
           );
 
       checks = builtins.mapAttrs (
-        system:
+        system: pkgs:
         builtins.mapAttrs (
           _name: ciEmacs:
           nixpkgs.legacyPackages.${system}.callPackage ./tests {
             inherit ciEmacs;
           }
-        )
+        ) (nixpkgs.lib.filterAttrs (name: _: name != "emacs-snapshot-commercial") pkgs)
       ) self.packages;
 
       githubActions =
