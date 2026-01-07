@@ -101,6 +101,7 @@
         in
         rec {
           checks = intersectAttrs platforms self.checks;
+          packages = intersectAttrs platforms self.packages;
           matrix.include = concatLists (
             attrValues (
               mapAttrs (
@@ -110,7 +111,7 @@
                   attr = pkg;
                   os = platforms.${system};
                 }) (attrNames pkgs)
-              ) checks
+              ) packages
             )
           );
         };
