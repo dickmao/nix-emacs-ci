@@ -138,6 +138,10 @@ stdenv.mkDerivation rec {
                   "${lib.getBin stdenv.cc.bintools}/bin"
                   "${lib.getBin stdenv.cc.bintools.bintools}/bin"
                 ]
+                ++ lib.optionals stdenv.hostPlatform.isDarwin [
+                  # The linker needs to know where to find libSystem on Darwin.
+                  "${apple-sdk.sdkroot}/usr/lib"
+                ]
               )
             )
           );
