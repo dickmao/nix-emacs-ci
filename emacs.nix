@@ -16,6 +16,7 @@
   tree-sitter,
   withTreeSitter ? lib.versionAtLeast version "29",
   withSQLite3 ? lib.versionAtLeast version "29",
+  apple-sdk,
   libgccjit,
   zlib,
 
@@ -140,7 +141,7 @@ stdenv.mkDerivation rec {
                 ]
                 ++ lib.optionals stdenv.hostPlatform.isDarwin [
                   # The linker needs to know where to find libSystem on Darwin.
-                  "${darwin.apple_sdk.sdkroot}/usr/lib"
+                  "${apple-sdk.sdkroot}/usr/lib"
                 ]
               )
             )
