@@ -163,7 +163,8 @@ stdenv.mkDerivation rec {
     "--with-gif=no"
     "--with-tiff=no"
   ]
-  ++ lib.optionals (withNativeCompilation) [ "--with-native-compilation=aot" ];
+  ++ lib.optionals (withNativeCompilation) [ "--with-native-compilation=aot" ]
+  ++ lib.optionals (!withNativeCompilation) [ "--without-native-compilation" ];
 
   postPatch = lib.concatStringsSep "\n" [
     (lib.optionalString srcRepo ''

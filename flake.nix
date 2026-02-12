@@ -68,7 +68,7 @@
                 src = inputs.${name};
                 latestPackageKeyring = inputs.emacs-snapshot + "/etc/package-keyring.gpg";
                 srcRepo = lib.strings.hasInfix "snapshot" version;
-                withNativeCompilation = true;
+                withNativeCompilation = false;
               }
             ) versions
           );
