@@ -45,11 +45,11 @@
     "emacs-snapshot-commercial": {
       "flake": false,
       "locked": {
-        "lastModified": 1767657314,
-        "narHash": "sha256-VxwR7w0ocqZ7CVbG35RjQeJSbsGUyHL+xGQVBjv8t9w=",
+        "lastModified": 1770922640,
+        "narHash": "sha256-ViQJ7Ky5fUEPKx/T7SbJP3JP1V8M+R7Rwl6GQQcowdk=",
         "owner": "commercial-emacs",
         "repo": "commercial-emacs",
-        "rev": "8cb271a1f02072adc51e98c5c30e197a03e77d35",
+        "rev": "c5956c70bee091508bb0c16c266d6cd18c496f12",
         "type": "github"
       },
       "original": {
